@@ -15,47 +15,62 @@ jint Java_com_wwj_jni_MainActivity_add(JNIEnv *env, jobject instance, jint a, ji
 //    __android_log_print(ANDROID_LOG_WARN,LOGTAG,"str=%s",str);
 //    __android_log_print(ANDROID_LOG_ERROR,LOGTAG,"b=%d",b);
 //    __android_log_print(ANDROID_LOG_WARN,LOGTAG,"a+b=%d",a+b);
-    LOGI("a=%d", a);
-    LOGW("my str=%s", str);
-    LOGE("b=%d", b);
-    LOGW("a+b=%d", a + b);
-    return a + b;
+//    LOGI("a=%d", a);
+//    LOGW("my str=%s", str);
+//    LOGE("b=%d", b);
+//    LOGW("a+b=%d", a + b);
+    int res = a + b;
+    LOGW("add-------a=%d,b=%d,res=%d", a, b, res);
+    return res;
 }
 
 jshort Java_com_wwj_jni_MainActivity_sub(JNIEnv *env, jobject instance, jshort a, jshort b) {
-    return a - b;
+    int res = a - b;
+    LOGW("sub------a=%d,b=%d,res=%d", a, b, res);
+    return res;
 }
 
 jdouble Java_com_wwj_jni_MainActivity_multi(JNIEnv *env, jobject instance, jdouble a, jdouble b) {
-    return a * b;
+    double res = a * b;
+    LOGW("multi------a=%lf,b=%lf,res=%lf", a, b, res);
+    return res;
 }
 
 jlong Java_com_wwj_jni_MainActivity_divi(JNIEnv *env, jobject instance, jlong a, jlong b) {
-    return a / b;
+    long res = a / b;
+    LOGW("divi------a=%d,b=%d,res=%d", a, b, res);
+    return res;
 }
 
 jchar Java_com_wwj_jni_MainActivity_getChar(JNIEnv *env, jobject instance, jchar a) {
     //A
-    return a = a + 3; //D
+    char res = a + 3;
+    LOGI("getChar------a=%c,res=%c", a, res);
+    return res; //D
 }
 
 jbyte Java_com_wwj_jni_MainActivity_sqrt(JNIEnv *env, jobject instance, jbyte a) {
-    return sqrt(a);
+    int csize = sizeof(char);
+    int res = sqrt(a);
+    LOGI("sqrt-----%d,a=%d,res=%d", csize, a, res);
+    return res;
 }
 
 jfloat Java_com_wwj_jni_MainActivity_power(JNIEnv *env, jobject instance, jfloat num, jfloat b) {
-    jfloat temp=num;
+    float res = num;
     for (int i = 1; i < b; i++) {
-        num *= temp;
+        res *= num;
     }
-    return num;
+    LOGE("power-------num=%f,b=%f,res=%f", num, b, res);
+    return res;
 
 }
 
 jboolean Java_com_wwj_jni_MainActivity_isTrue(JNIEnv *env, jobject instance, jboolean b) {
-    if(b){
+    LOGE("isTrue----b=%d", b);
+    if (b) {
         return 1;
-    }else{
+    } else {
         return 0;
     }
 }

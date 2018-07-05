@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         stringBuilder.append("sub(923,789)="+sresult+"\r\n");
 
         double dres=multi(30,20.2); //606.6
-        stringBuilder.append("multi(30,20.22)="+dres+"----");
+        stringBuilder.append("multi(30,20.2)="+dres+"----");
 
         long lres=divi(180,30); //6
         stringBuilder.append("divi(180,30)="+lres+"\r\n");
