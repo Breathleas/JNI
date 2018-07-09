@@ -2,6 +2,7 @@ package com.wwj.jni;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,39 +25,46 @@ public class MainActivity extends AppCompatActivity {
 //        tv.setText(stringFromJNI()+"-----"+add(5,13));
 
 
-        StringBuilder stringBuilder=new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
 
 
-        int result=add(23,35);//58
-        stringBuilder.append("add(23,35)="+result+"-----");
+        int result = add(23, 35);//58
+        stringBuilder.append("add(23,35)=" + result + "-----");
 
-        short s1=923,s2=789;//134
-        short sresult=sub(s1,s2);
-        stringBuilder.append("sub(923,789)="+sresult+"\r\n");
+        short s1 = 923, s2 = 789;//134
+        short sresult = sub(s1, s2);
+        stringBuilder.append("sub(923,789)=" + sresult + "\r\n");
 
-        double dres=multi(30,20.2); //606.6
-        stringBuilder.append("multi(30,20.2)="+dres+"----");
+        double dres = multi(30, 20.2); //606.6
+        stringBuilder.append("multi(30,20.2)=" + dres + "----");
 
-        long lres=divi(180,30); //6
-        stringBuilder.append("divi(180,30)="+lres+"\r\n");
+        long lres = divi(180, 30); //6
+        stringBuilder.append("divi(180,30)=" + lres + "\r\n");
 
-        char ch=getChar('A');
-        stringBuilder.append("etChar('A')="+ch+"-----");
+        char ch = getChar('A');
+        stringBuilder.append("etChar('A')=" + ch + "-----");
 
-        byte bres=sqrt((byte) 25);
-        stringBuilder.append("sqrt(25)="+bres+"\r\n");
+        byte bres = sqrt((byte) 25);
+        stringBuilder.append("sqrt(25)=" + bres + "\r\n");
 
-        float fres=power(2,5);
-        stringBuilder.append("power(2,5)="+fres+"-----");
+        float fres = power(2, 5);
+        stringBuilder.append("power(2,5)=" + fres + "-----");
 
-        boolean bool=isTrue(true);
-        stringBuilder.append("isTrue(true)="+bool+"\r\n");
+        boolean bool = isTrue(true);
+        stringBuilder.append("isTrue(true)=" + bool + "\r\n");
 
-        tv.setText(stringBuilder.toString());
+        String str=sayHello("Good Evening!");
+
+        String subStr=subStr("Good Today!");
+
+        tv.setText(stringBuilder.toString()+str+subStr);
 
     }
 
+    //JAVA的代码是Unicode编码
+    public native String sayHello(String str);
 
+    public native String subStr(String str);
 
     /**
      * A native method that is implemented by the 'native-lib' native library,
@@ -65,13 +73,23 @@ public class MainActivity extends AppCompatActivity {
     public native String stringFromJNI(); //声明一个原声函数
 
     public native int add(int a, int b);
-    public native short sub(short a,short b);
-    public native double multi(double a,double b);
-    public native long divi(long a,long b);
+
+    public native short sub(short a, short b);
+
+    public native double multi(double a, double b);
+
+    public native long divi(long a, long b);
+
     public native char getChar(char a);
+
     public native byte sqrt(byte a);
-    public native float power(float num,float b);
+
+    public native float power(float num, float b);
+
     public native boolean isTrue(boolean b);
+
+
+    //JAVA 代码的编码方式是Unicode
 
 
     // byte类型字节数=1
@@ -82,9 +100,6 @@ public class MainActivity extends AppCompatActivity {
 // long类型字节数=8
 // float类型字节数=4
 // double类型字节数=8
-
-
-
 
 
 }
