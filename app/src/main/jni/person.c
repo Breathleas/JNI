@@ -132,6 +132,7 @@ Java_com_wwj_jni_Person_setHappinessNative(JNIEnv *env, jobject instance) {
     //1 获取类类型，获取class对象
 //    jclass      (*FindClass)(JNIEnv*, const char*);
     jclass  personClazz=(*env)->GetObjectClass(env,instance);
+
     if(NULL==personClazz){
         LOGE("------Person类没有找到-----------");
         return JNI_FALSE;
