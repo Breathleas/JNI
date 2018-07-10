@@ -7,7 +7,12 @@
 |2|02_JAVA调用C和C++返回HelloWorld显示到Android手机界面|https://www.iqiyi.com/w_19s0es6i2x.html|
 |3|03_AndroidStudio中C与CPP文件构建脚本|https://www.iqiyi.com/w_19s0exqkmp.html|
 |4|04_AndroidStudio通过C语言打印日志|https://www.iqiyi.com/w_19s0fqud4h.html|
-|5|05_JAVA与JNI的数据类型||
+|5|05_JAVA与JNI的数据类型|http://www.iqiyi.com/w_19s0fe452x.html|
+|6|06_通过计算器深入认识JAVA与JNI的基本数据类型|http://www.iqiyi.com/w_19s0bquagx.html|
+|7|07_通过官方文档了解JNI|https://www.iqiyi.com/w_19s0cduw2p.html|
+|8|08_熟悉JNIEnv和jobject|http://www.iqiyi.com/w_19s0kb65i5.html|
+|9|09_JNI字符串操作|http://www.iqiyi.com/w_19s0jvq2o1.html|
+|10|05_JAVA与JNI的数据类型||
 
 
 

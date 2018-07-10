@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
+        TextView tvStu = (TextView) findViewById(R.id.tvStu);
 
 //        tv.setText(stringFromJNI()+"-----"+add(5,13));
 
@@ -53,11 +54,19 @@ public class MainActivity extends AppCompatActivity {
         boolean bool = isTrue(true);
         stringBuilder.append("isTrue(true)=" + bool + "\r\n");
 
-        String str=sayHello("Good Evening!");
+        String str = sayHello("Good Evening!");
 
-        String subStr=subStr("Good Today!");
+        String subStr = subStr("Good Today!");
 
-        tv.setText(stringBuilder.toString()+str+subStr);
+        tv.setText(stringBuilder.toString() + str + subStr);
+
+
+        Student student = new Student();
+        int sum = student.sum(student.stuScore);
+        float stuScore[] = {80, 95, 60, 50, 85.5f};
+        float average = student.average(stuScore);
+        float sum2=student.sum2(stuScore);
+        tvStu.setText("学生成绩总和=" + sum + "-----学会平均成绩=" + average+"------学生成绩总和2="+sum2);
 
     }
 
