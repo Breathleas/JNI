@@ -12,18 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center|left"
-        android:text="Hello World!"
-       />
+        android:text="Hello World!" />
 
     <TextView
         android:id="@+id/tvStu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:gravity="center|left"
         android:minHeight="100dp"
-        android:background="@color/colorAccent"
-        android:textSize="16sp"
         android:textColor="@android:color/white"
-        />
+        android:textSize="16sp" />
 
+    <TextView
+        android:id="@+id/tvPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center|left"
+        android:minHeight="100dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 </LinearLayout>

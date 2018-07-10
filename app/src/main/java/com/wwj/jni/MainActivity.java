@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
         TextView tvStu = (TextView) findViewById(R.id.tvStu);
+        TextView tvPerson = (TextView) findViewById(R.id.tvPerson);
 
 //        tv.setText(stringFromJNI()+"-----"+add(5,13));
 
@@ -76,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
         tvStu.setText("学生成绩总和=" + sum + "-----学生平均成绩=" + average+"------学生成绩总和2="
                 +sum2+"-----修改学生成绩="+isModify+"--修改后的学生成绩"+sb.toString());
+
+        Person person=new Person();
+        person.callJavaStaticMethod();
+        person.callJavaInstanceMethod();
+
 
     }
 

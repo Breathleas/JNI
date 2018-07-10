@@ -23,6 +23,7 @@ add_library( # Sets the name of the library.
              src/main/jni/hellojni.c
              src/main/jni/good.c
              src/main/jni/student.c
+             src/main/jni/person.c
              )
 
 # Searches for a specified prebuilt library and stores the path as a

@@ -93,5 +93,3 @@ Java_com_wwj_jni_Student_modifyStuScore(JNIEnv *env, jobject instance, jintArray
     return JNI_TRUE;
 }
 
-
-
