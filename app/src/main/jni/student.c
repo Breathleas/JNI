@@ -59,7 +59,7 @@ Java_com_wwj_jni_Student_sum2(JNIEnv *env, jobject instance, jfloatArray stuScor
 //    void*       (*GetPrimitiveArrayCritical)(JNIEnv*, jarray, jboolean*);
     //指针指向原始数组,JNI_FALSE 不拷贝数组到缓冲区
     //JNI_TRUE 拷贝数组到缓冲区
-    //调用这个函数时，会暂停GC线程,不能够调用 其它线程的wait或者notity
+    //调用这个函数时，会暂停GC线程,不能调用 其它线程的wait或者notity
 //    在 Get/ReleasePrimitiveArrayCritical 这两个函数期间不能调用任何会让线程阻塞或等待 JVM 中其它线程的本地函数或JNI函数
     jfloat *stuScore = (*env)->GetPrimitiveArrayCritical(env, stuScore_, JNI_FALSE);
     int len = (*env)->GetArrayLength(env, stuScore_);

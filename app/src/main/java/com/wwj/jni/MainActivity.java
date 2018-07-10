@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         tvStu.setText("学生成绩总和=" + sum + "-----学生平均成绩=" + average+"------学生成绩总和2="
                 +sum2+"-----修改学生成绩="+isModify+"--修改后的学生成绩"+sb.toString());
 
-
     }
 
     //JAVA的代码是Unicode编码
