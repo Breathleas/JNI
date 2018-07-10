@@ -10,4 +10,6 @@ public class Student {
 
     public native float sum2(float stuScore[]);
 
+    public native boolean modifyStuScore(int stuScore[]);
+
 }

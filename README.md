@@ -12,7 +12,10 @@
 |7|07_通过官方文档了解JNI|https://www.iqiyi.com/w_19s0cduw2p.html|
 |8|08_熟悉JNIEnv和jobject|http://www.iqiyi.com/w_19s0kb65i5.html|
 |9|09_JNI字符串操作|http://www.iqiyi.com/w_19s0jvq2o1.html|
-|10|05_JAVA与JNI的数据类型||
+|10|010_JNI通过数组求出一个班的平均成绩|https://www.iqiyi.com/w_19s0k1six5.html|
+|11|11_JAVA的JNI修改学生成绩|https://www.iqiyi.com/w_19s0g8yw9p.html|
+|12|||
+|13|||
 
 
 

@@ -61,7 +61,7 @@ Java_com_wwj_jni_Student_sum2(JNIEnv *env, jobject instance, jfloatArray stuScor
     //JNI_TRUE 拷贝数组到缓冲区
     //调用这个函数时，会暂停GC线程,不能够调用 其它线程的wait或者notity
 //    在 Get/ReleasePrimitiveArrayCritical 这两个函数期间不能调用任何会让线程阻塞或等待 JVM 中其它线程的本地函数或JNI函数
-    jfloat *stuScore = (*env)->GetPrimitiveArrayCritical(env,stuScore_,JNI_FALSE);
+    jfloat *stuScore = (*env)->GetPrimitiveArrayCritical(env, stuScore_, JNI_FALSE);
     int len = (*env)->GetArrayLength(env, stuScore_);
 
     float sum;
@@ -71,10 +71,26 @@ Java_com_wwj_jni_Student_sum2(JNIEnv *env, jobject instance, jfloatArray stuScor
         LOGW("stu2[%d]=%f", i, *(stuScore + i));
     }
 //    void        (*ReleasePrimitiveArrayCritical)(JNIEnv*, jarray, void*, jint);
-    (*env)->ReleasePrimitiveArrayCritical(env,stuScore_,stuScore,0);
+    (*env)->ReleasePrimitiveArrayCritical(env, stuScore_, stuScore, 0);
 
     return sum;
 
+}
+
+JNIEXPORT jboolean JNICALL
+Java_com_wwj_jni_Student_modifyStuScore(JNIEnv *env, jobject instance, jintArray stuScore_) {
+    int len = (*env)->GetArrayLength(env, stuScore_);
+    jint *score = malloc(sizeof(jint) * len);
+    if(NULL==score){
+        return JNI_FALSE;
+    }
+    for (int i = 0; i < len; i++) {
+        score[i] = 80;
+    }
+//    void        (*SetIntArrayRegion)(JNIEnv*, jintArray, jsize, jsize, const jint*);
+   (*env)->SetIntArrayRegion(env, stuScore_, 0, len, score);
+    free(score);
+    return JNI_TRUE;
 }
 
 

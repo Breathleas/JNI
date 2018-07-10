@@ -66,7 +66,17 @@ public class MainActivity extends AppCompatActivity {
         float stuScore[] = {80, 95, 60, 50, 85.5f};
         float average = student.average(stuScore);
         float sum2=student.sum2(stuScore);
-        tvStu.setText("学生成绩总和=" + sum + "-----学会平均成绩=" + average+"------学生成绩总和2="+sum2);
+
+        boolean isModify=student.modifyStuScore(student.stuScore);
+
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<student.stuScore.length;i++){
+            sb.append("stuScore["+i+"]="+student.stuScore[i]+"  ");
+        }
+
+        tvStu.setText("学生成绩总和=" + sum + "-----学生平均成绩=" + average+"------学生成绩总和2="
+                +sum2+"-----修改学生成绩="+isModify+"--修改后的学生成绩"+sb.toString());
+
 
     }
 

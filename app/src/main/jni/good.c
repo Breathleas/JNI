@@ -130,3 +130,4 @@ Java_com_wwj_jni_MainActivity_subStr(JNIEnv *env, jobject instance, jstring str_
     //把UTF-8编码转换为Unicode编码
     return (*env)->NewStringUTF(env, buff);
 }
+
