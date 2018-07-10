@@ -5,6 +5,7 @@ import android.util.Log;
 public class Person {
 
 
+
     /**
      * C/CPP调用JAVA的静态方法
      */
@@ -25,4 +26,17 @@ public class Person {
     }
 
 
+    private String hobby;
+    private static int happiness; // 0 ----- 100
+
+    public native boolean setHobbyNative();
+    public native boolean setHappinessNative();
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public static int getHappiness() {
+        return happiness;
+    }
 }

@@ -83,3 +83,75 @@ Java_com_wwj_jni_Person_callJavaInstanceMethod(JNIEnv *env, jobject instance) {
     (*env)->DeleteLocalRef(env,obj);
 
 }
+
+JNIEXPORT jboolean JNICALL
+Java_com_wwj_jni_Person_setHobbyNative(JNIEnv *env, jobject instance) {
+
+    //1 获取类类型，获取class对象
+//    jclass      (*FindClass)(JNIEnv*, const char*);
+    jclass  personClazz=(*env)->GetObjectClass(env,instance);
+    if(NULL==personClazz){
+        LOGE("------Person类没有找到-----------");
+        return JNI_FALSE;
+    }
+
+    //2 获取属性ID
+//    jfieldID    (*GetFieldID)(JNIEnv*, jclass, const char*, const char*);
+    jfieldID  hobbyFieldID=(*env)->GetFieldID(env,personClazz,"hobby","Ljava/lang/String;");
+    if(NULL==hobbyFieldID){
+        LOGE("------hobbyFieldID  null-----------");
+        return JNI_FALSE;
+    }
+
+    //3 获取属性值
+    jstring hobbyStr=(*env)->GetObjectField(env,instance,hobbyFieldID);
+    if(NULL!=hobbyStr){
+//        const char* (*GetStringUTFChars)(JNIEnv*, jstring, jboolean*);
+        const  char *hobby=(*env)->GetStringUTFChars(env,hobbyStr,NULL);
+        if(NULL!=hobby){
+            LOGW("------hobby=%s",hobby);
+            (*env)->ReleaseStringUTFChars(env,hobbyStr,hobby);
+        }
+    }
+
+    //4 设置属性
+//    void        (*SetObjectField)(JNIEnv*, jobject, jfieldID, jobject);
+    jstring jhobby=(*env)->NewStringUTF(env,"篮球，足球，排球，羽毛球");
+    (*env)->SetObjectField(env,instance,hobbyFieldID,jhobby);
+
+    //5 删除局部引用变量
+    (*env)->DeleteLocalRef(env,personClazz);
+    (*env)->DeleteLocalRef(env,hobbyStr);
+    (*env)->DeleteLocalRef(env,jhobby);
+    return JNI_TRUE;
+}
+
+JNIEXPORT jboolean JNICALL
+Java_com_wwj_jni_Person_setHappinessNative(JNIEnv *env, jobject instance) {
+
+    //1 获取类类型，获取class对象
+//    jclass      (*FindClass)(JNIEnv*, const char*);
+    jclass  personClazz=(*env)->GetObjectClass(env,instance);
+    if(NULL==personClazz){
+        LOGE("------Person类没有找到-----------");
+        return JNI_FALSE;
+    }
+
+    //2 获取属性ID
+//    jfieldID    (*GetFieldID)(JNIEnv*, jclass, const char*, const char*);
+    jfieldID  happinessFieldID=(*env)->GetStaticFieldID(env,personClazz,"happiness","I");
+    if(NULL==happinessFieldID){
+        LOGE("------happinessFieldID  null-----------");
+        return JNI_FALSE;
+    }
+
+    //3 获取静态属性值
+    jint happiness=(*env)->GetStaticIntField(env,personClazz,happinessFieldID);
+    LOGW("----happiness=%d",happiness);
+
+    //4 设置静态属性值
+    (*env)->SetStaticIntField(env,personClazz,happinessFieldID,80);
+
+    //5 删除局部引用变量
+    (*env)->DeleteLocalRef(env,personClazz);
+}

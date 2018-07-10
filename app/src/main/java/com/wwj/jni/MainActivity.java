@@ -82,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
         person.callJavaStaticMethod();
         person.callJavaInstanceMethod();
 
+        person.setHobbyNative();
+        person.setHappinessNative();
+
+        String hobby=person.getHobby();
+        int happiness=Person.getHappiness();
+        tvPerson.setText("爱好="+hobby+"----happiness="+happiness);
 
     }
 
