@@ -15,7 +15,7 @@
 |10|010_JNI通过数组求出一个班的平均成绩|https://www.iqiyi.com/w_19s0k1six5.html|
 |11|11_JAVA的JNI修改学生成绩|https://www.iqiyi.com/w_19s0g8yw9p.html|
 |12|12_JNI访问JAVA实例方法和静态方法|https://www.iqiyi.com/w_19s0fwhd55.html|
-|13|13_JNI访问JAVA实例属性和静态属性||
+|13|13_JNI访问JAVA实例属性和静态属性|https://www.iqiyi.com/w_19s0g254u1.html|
 
 
 
