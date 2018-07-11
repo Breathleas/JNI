@@ -89,7 +89,12 @@ public class MainActivity extends AppCompatActivity {
         int happiness=Person.getHappiness();
         tvPerson.setText("爱好="+hobby+"----happiness="+happiness);
 
+        callSuperInstance();
+
     }
+
+
+    public native void callSuperInstance();
 
     //JAVA的代码是Unicode编码
     public native String sayHello(String str);

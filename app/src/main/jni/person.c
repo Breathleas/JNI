@@ -156,3 +156,4 @@ Java_com_wwj_jni_Person_setHappinessNative(JNIEnv *env, jobject instance) {
     //5 删除局部引用变量
     (*env)->DeleteLocalRef(env,personClazz);
 }
+
