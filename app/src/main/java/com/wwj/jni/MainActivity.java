@@ -89,10 +89,19 @@ public class MainActivity extends AppCompatActivity {
         int happiness=Person.getHappiness();
         tvPerson.setText("爱好="+hobby+"----happiness="+happiness);
 
-        callSuperInstance();
+//        callSuperInstance();
+
+        local_global();
+        local_global();
+
+        testRefreenceCount();
+
 
     }
 
+    public native void local_global();
+
+    public native void testRefreenceCount();
 
     public native void callSuperInstance();
 
