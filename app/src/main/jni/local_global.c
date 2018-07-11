@@ -19,9 +19,9 @@ Java_com_wwj_jni_MainActivity_local_1global(JNIEnv *env, jobject instance) {
     jclass clsBird = NULL;
     if (NULL == clsBirdGlobal) {
         clsBird = (*env)->FindClass(env, "com/wwj/jni/Bird");
-    }else{
+    } else {
         LOGE("-----------Bird 变量的全局引用不为空");
-        clsBird=clsBirdGlobal;
+        clsBird = clsBirdGlobal;
     }
 
     if (NULL == clsBird) {
@@ -36,7 +36,7 @@ Java_com_wwj_jni_MainActivity_local_1global(JNIEnv *env, jobject instance) {
         clsBirdGlobal = (*env)->NewGlobalRef(env, clsBird);
     }
 
-    jclass   clsAnimal = (*env)->FindClass(env, "com/wwj/jni/Animal");
+    jclass clsAnimal = (*env)->FindClass(env, "com/wwj/jni/Animal");
 
     //错误的写法---------------
 //    static jclass clsGlobalAnimal=NULL;
@@ -67,9 +67,20 @@ Java_com_wwj_jni_MainActivity_local_1global(JNIEnv *env, jobject instance) {
     }
 
 
+    static jstring weakGlobalName = NULL;
+    jstring name = NULL;
     //3 创建一个对象
 //    jobject     (*NewObject)(JNIEnv*, jclass, jmethodID, ...);
-    jstring name = (*env)->NewStringUTF(env, "啄木鸟");
+
+    if (NULL == weakGlobalName) {
+        name = (*env)->NewStringUTF(env, "啄木鸟");
+//    jweak       (*NewWeakGlobalRef)(JNIEnv*, jobject);
+        weakGlobalName = (*env)->NewWeakGlobalRef(env, name);
+    } else {
+        name = weakGlobalName;
+    }
+
+
     if (NULL == name) {
         LOGE("---C 创建小鸟名字失败");
         return;
@@ -138,13 +149,13 @@ Java_com_wwj_jni_MainActivity_local_1global(JNIEnv *env, jobject instance) {
     //最后，删除局部引用变量
     (*env)->DeleteLocalRef(env, clsBirdLoacl);
     (*env)->DeleteLocalRef(env, clsAnimal);
-    (*env)->DeleteLocalRef(env, name);
+//    (*env)->DeleteLocalRef(env, name);
     (*env)->DeleteLocalRef(env, bird);
     (*env)->DeleteLocalRef(env, getName);
     (*env)->DeleteLocalRef(env, animalName);
 
-    (*env)->DeleteGlobalRef(env,clsBirdGlobal);
-    clsBirdGlobal=NULL;
+    (*env)->DeleteGlobalRef(env, clsBirdGlobal);
+    clsBirdGlobal = NULL;
 
 }
 
