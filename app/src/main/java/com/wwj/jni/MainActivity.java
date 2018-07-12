@@ -31,7 +31,14 @@ public class MainActivity extends AppCompatActivity {
 //        callSuperInstance();
 //        threddReference();
 
+        localRegister();
 
+    }
+
+
+    private void localRegister(){
+        LocalRegister localRegister=new LocalRegister();
+        localRegister.printStr();
     }
 
     private void threddReference() {

@@ -19,8 +19,9 @@
 |14|14_JNI访问JAVA构造方法和父类实例方法|https://www.iqiyi.com/w_19s0hdgxi9.html|
 |15|15_JNI全局引用和局部引用|https://www.iqiyi.com/w_19s0h1koy9.html|
 |16|16_JNI弱全局引用|https://www.iqiyi.com/w_19s0h2tcvd.html|
-|17|17_简化工程代码||
-|18|18_JAVA的JNI注册本地函数和引用表||
+|17|17_简化工程代码|http://www.iqiyi.com/w_19s0hmjkbx.html|
+|18|18_JAVA的JNI注册本地函数和引用表|http://www.iqiyi.com/w_19s0hkbap1.html|
+|18|19_JAVA的JNI注册本地函数下|http://www.iqiyi.com/w_19s0hpmdnp.html|
 
 
 
