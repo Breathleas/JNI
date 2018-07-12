@@ -25,8 +25,53 @@ public class MainActivity extends AppCompatActivity {
         TextView tvPerson = (TextView) findViewById(R.id.tvPerson);
 
 //        tv.setText(stringFromJNI()+"-----"+add(5,13));
+//        calc(tv);
+//        modifyStu(tvStu);
+//        jniCallJavaMethod(tvPerson);
+//        callSuperInstance();
+//        threddReference();
 
 
+    }
+
+    private void threddReference() {
+        local_global();
+        local_global();
+        testRefreenceCount();
+    }
+
+    private void jniCallJavaMethod(TextView tvPerson) {
+        Person person = new Person();
+        person.callJavaStaticMethod();
+        person.callJavaInstanceMethod();
+
+        person.setHobbyNative();
+        person.setHappinessNative();
+
+        String hobby = person.getHobby();
+        int happiness = Person.getHappiness();
+        tvPerson.setText("爱好=" + hobby + "----happiness=" + happiness);
+    }
+
+    private void modifyStu(TextView tvStu) {
+        Student student = new Student();
+        int sum = student.sum(student.stuScore);
+        float stuScore[] = {80, 95, 60, 50, 85.5f};
+        float average = student.average(stuScore);
+        float sum2 = student.sum2(stuScore);
+
+        boolean isModify = student.modifyStuScore(student.stuScore);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < student.stuScore.length; i++) {
+            sb.append("stuScore[" + i + "]=" + student.stuScore[i] + "  ");
+        }
+
+        tvStu.setText("学生成绩总和=" + sum + "-----学生平均成绩=" + average + "------学生成绩总和2="
+                + sum2 + "-----修改学生成绩=" + isModify + "--修改后的学生成绩" + sb.toString());
+    }
+
+    private void calc(TextView tv) {
         StringBuilder stringBuilder = new StringBuilder();
 
 
@@ -60,43 +105,6 @@ public class MainActivity extends AppCompatActivity {
         String subStr = subStr("Good Today!");
 
         tv.setText(stringBuilder.toString() + str + subStr);
-
-
-        Student student = new Student();
-        int sum = student.sum(student.stuScore);
-        float stuScore[] = {80, 95, 60, 50, 85.5f};
-        float average = student.average(stuScore);
-        float sum2=student.sum2(stuScore);
-
-        boolean isModify=student.modifyStuScore(student.stuScore);
-
-        StringBuilder sb=new StringBuilder();
-        for(int i=0;i<student.stuScore.length;i++){
-            sb.append("stuScore["+i+"]="+student.stuScore[i]+"  ");
-        }
-
-        tvStu.setText("学生成绩总和=" + sum + "-----学生平均成绩=" + average+"------学生成绩总和2="
-                +sum2+"-----修改学生成绩="+isModify+"--修改后的学生成绩"+sb.toString());
-
-        Person person=new Person();
-        person.callJavaStaticMethod();
-        person.callJavaInstanceMethod();
-
-        person.setHobbyNative();
-        person.setHappinessNative();
-
-        String hobby=person.getHobby();
-        int happiness=Person.getHappiness();
-        tvPerson.setText("爱好="+hobby+"----happiness="+happiness);
-
-//        callSuperInstance();
-
-        local_global();
-        local_global();
-
-        testRefreenceCount();
-
-
     }
 
     public native void local_global();

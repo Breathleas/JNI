@@ -16,6 +16,11 @@
 |11|11_JAVA的JNI修改学生成绩|https://www.iqiyi.com/w_19s0g8yw9p.html|
 |12|12_JNI访问JAVA实例方法和静态方法|https://www.iqiyi.com/w_19s0fwhd55.html|
 |13|13_JNI访问JAVA实例属性和静态属性|https://www.iqiyi.com/w_19s0g254u1.html|
+|14|14_JNI访问JAVA构造方法和父类实例方法|https://www.iqiyi.com/w_19s0hdgxi9.html|
+|15|15_JNI全局引用和局部引用|https://www.iqiyi.com/w_19s0h1koy9.html|
+|16|16_JNI弱全局引用|https://www.iqiyi.com/w_19s0h2tcvd.html|
+|17|17_简化工程代码||
+|18|18_JAVA的JNI注册本地函数和引用表||
 
 
 
