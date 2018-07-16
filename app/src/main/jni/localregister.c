@@ -20,11 +20,20 @@ jobjectArray getString(JNIEnv *env, jobject instance, jint len, jstring str) {
     jobjectArray strArrObj = NULL;
 
     //1 获取String 类类型
+    //2 JNI发生的异常和JAVA发生的异常处理是不一样的
+    //  JNI发生异常运行时异常后，代码会接着执行，并且异常会自动抛给JAVA层
     jclass clsString = (*env)->FindClass(env, "java/lang/String");
-    if (NULL == clsString) {
-        LOGE("---clsString 没有找到");
+    if ((*env)->ExceptionCheck(env)) {
+        (*env)->ExceptionDescribe(env); //把异常打印到堆栈上
+        (*env)->ExceptionClear(env);
         return NULL;
     }
+
+
+//    if (NULL == clsString) {
+//        LOGE("---clsString 没有找到");
+//        return NULL;
+//    }
     //2 获取字符串构造函数ID
 //    public String()
     jmethodID midStr = (*env)->GetMethodID(env, clsString, "<init>", "()V");
@@ -53,8 +62,18 @@ jobjectArray getString(JNIEnv *env, jobject instance, jint len, jstring str) {
         memset(buff, '\0', sizeof(buff));
         sprintf(buff, c_str, i);
         jstring jstr = (*env)->NewStringUTF(env, buff);
-        (*env)->SetObjectArrayElement(env, strArrObj, i - 1, jstr);
-        (*env)->DeleteLocalRef(env,jstr); //删除局部引用
+        (*env)->SetObjectArrayElement(env, strArrObj, i-1, jstr);
+        (*env)->DeleteLocalRef(env, jstr); //删除局部引用
+    }
+
+//    jthrowable  (*ExceptionOccurred)(JNIEnv*);
+    //检测是否发生异常，如果发生异常，返回异常引用,我们把异常抛给JAVA给
+    jthrowable throw=(*env)->ExceptionOccurred(env);
+    if(throw){
+        (*env)->ExceptionDescribe(env); //异常打印到堆栈上
+        (*env)->ExceptionClear(env);
+        (*env)->Throw(env,throw);
+        return NULL;
     }
 
     return strArrObj;
@@ -72,7 +91,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     }
 
     //1 获取类类型
-    jclass clsLoalRegister = (*env)->FindClass(env, "com/wwj/jni/LocalRegister");
+    jclass clsLoalRegister = (*env)->FindClass(env, "com/wwj/jni/LocalRegisters");
     if (NULL == clsLoalRegister) {
         LOGE("---clsLoalRegister 没有找到");
         return JNI_VERSION_1_6;

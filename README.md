@@ -21,7 +21,8 @@
 |16|16_JNI弱全局引用|https://www.iqiyi.com/w_19s0h2tcvd.html|
 |17|17_简化工程代码|http://www.iqiyi.com/w_19s0hmjkbx.html|
 |18|18_JAVA的JNI注册本地函数和引用表|http://www.iqiyi.com/w_19s0hkbap1.html|
-|18|19_JAVA的JNI注册本地函数下|http://www.iqiyi.com/w_19s0hpmdnp.html|
+|19|19_JAVA的JNI注册本地函数下|http://www.iqiyi.com/w_19s0hpmdnp.html|
+|20|20_JAVA的JNI异常处理|https://www.iqiyi.com/w_19s053vlkl.html|
 
 
 
@@ -29,11 +30,5 @@
 http://note.youdao.com/noteshare?id=5256fb2380dd149a96238f2c75ab3b85&sub=AB16EA1C49664D1C94477D74EC277BEA
 
 http://note.youdao.com/noteshare?id=3871e613448b862110ee899f90be844f
-
-
-
-
-
-
 
 

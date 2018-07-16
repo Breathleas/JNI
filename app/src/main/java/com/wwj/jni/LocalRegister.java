@@ -12,7 +12,7 @@ public class LocalRegister {
     public native String[] getString(int len, String str);
 
     public void printStr() {
-        String[] strArr = getString(10000, "I love you %d year");
+        String[] strArr = getString(10, "I love you %d year");
         if(null!=strArr){
             for (String str : strArr) {
                 Log.e("hello","--------"+ str);
