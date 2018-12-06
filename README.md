@@ -27,8 +27,11 @@
 
 
 有道云笔记地址
-http://note.youdao.com/noteshare?id=5256fb2380dd149a96238f2c75ab3b85&sub=AB16EA1C49664D1C94477D74EC277BEA
 
+Android的NDK开发上
+http://note.youdao.com/noteshare?id=1f00c33e60f0911a2c21d6b90a3d5207
+
+Android的NDK开发下
 http://note.youdao.com/noteshare?id=3871e613448b862110ee899f90be844f
 
 
